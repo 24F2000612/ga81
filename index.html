@@ -14,13 +14,16 @@
 
   <style>
     .reveal{font-family:Arial, sans-serif}
-    .email{font-size:0.9rem;opacity:.9}
+    .email{font-size:0.9rem;opacity:.95}
     .chart{height:360px;margin:12px auto}
+    noscript .nojs-message{display:block}
   </style>
 </head>
 <body>
   <noscript>
-    <div style="padding:20px;text-align:center;">JavaScript is required to view this presentation. Enable JS and refresh.</div>
+    <div class="nojs-message" style="padding:20px;text-align:center;">
+      JavaScript is required to view this presentation. Enable JS and refresh.
+    </div>
   </noscript>
 
   <div class="reveal">
@@ -32,6 +35,7 @@
         <aside class="notes">Intro: mention contact email (required).</aside>
       </section>
 
+      <!-- This uses data-markdown (requires plugin). If plugin not available you'll still see the raw markdown block. -->
       <section data-markdown>
         <textarea data-template>
 ## Highlights
@@ -61,37 +65,69 @@
     </div>
   </div>
 
-  <!-- Use ESM imports so plugin objects are available as JS module values -->
-  <script type="module">
-    import Reveal from "https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/dist/reveal.esm.js";
-    import Markdown from "https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/dist/plugin/markdown/markdown.esm.js";
-    import Highlight from "https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/dist/plugin/highlight/highlight.esm.js";
-    import Math from "https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/dist/plugin/math/math.esm.js";
-    import Notes from "https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/dist/plugin/notes/notes.esm.js";
-
-    // Initialize Reveal with module plugins (passed as values, not globals)
-    const deck = new Reveal({
-      width: 1280,
-      height: 720,
-      margin: 0.04,
-      controls: true,
-      progress: true,
-      history: true,
-      center: true,
-      transition: "slide",
-      plugins: [ Markdown, Highlight, Math, Notes ]
-    });
-    deck.initialize();
-
-    // optional: ensure highlight.js highlights code blocks after ready
-    deck.on('ready', () => {
-      if (window.hljs && typeof hljs.highlightAll === 'function') {
-        hljs.highlightAll();
-      }
-    });
-  </script>
-
-  <!-- highlight.js (global) - used by RevealHighlight to highlight code -->
+  <!-- load highlight.js first (global) so RevealHighlight can use it if present -->
   <script src="https://cdn.jsdelivr.net/npm/highlight.js@11.8.0/lib/common.min.js"></script>
+
+  <!-- load reveal core (non-ESM global) -->
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/dist/reveal.js"></script>
+
+  <!-- load non-ESM plugin scripts (these define global plugin objects like RevealMarkdown) -->
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/plugin/markdown/markdown.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/plugin/highlight/highlight.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/plugin/math/math.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/plugin/notes/notes.js"></script>
+
+  <script>
+    // Build plugin list only from globals that actually exist.
+    (function() {
+      // small helper to test existence and log missing plugins
+      const availablePlugins = [];
+      const want = [
+        {name: 'RevealMarkdown', value: window.RevealMarkdown},
+        {name: 'RevealHighlight', value: window.RevealHighlight},
+        {name: 'RevealMath', value: window.RevealMath},
+        {name: 'RevealNotes', value: window.RevealNotes}
+      ];
+
+      want.forEach(p => {
+        if (typeof p.value !== 'undefined') {
+          availablePlugins.push(p.value);
+          console.log('Loaded plugin:', p.name);
+        } else {
+          console.warn('Plugin not available:', p.name);
+        }
+      });
+
+      // If Reveal isn't available, show a friendly error in console and on page
+      if (typeof window.Reveal === 'undefined') {
+        console.error('Reveal core not loaded. Presentation cannot initialize.');
+        document.body.insertAdjacentHTML('afterbegin', '<div style="padding:20px;color:red;text-align:center;">Reveal core failed to load. Check network or CDN.</div>');
+        return;
+      }
+
+      // Initialize Reveal with whichever plugins were loaded successfully
+      Reveal.initialize({
+        width: 1280,
+        height: 720,
+        margin: 0.04,
+        controls: true,
+        progress: true,
+        history: true,
+        center: true,
+        transition: "slide",
+        plugins: availablePlugins
+      });
+
+      // highlight code once ready (if highlight.js present)
+      Reveal.on('ready', function() {
+        if (window.hljs && typeof hljs.highlightAll === 'function') {
+          try { hljs.highlightAll(); } catch (e) { console.warn('hljs.highlightAll failed', e); }
+        }
+      });
+
+      // Helpful debug info in console so you can see what's loaded
+      console.log('Reveal initialized. Plugins used:', availablePlugins.length);
+    })();
+  </script>
 </body>
 </html>
