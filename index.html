@@ -5,11 +5,11 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>RevealJS — Quarterly Earnings (ga81)</title>
 
-  <!-- Core CSS -->
+  <!-- Reveal core CSS & theme -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/dist/reveal.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/dist/theme/white.css">
 
-  <!-- highlight.js style (used by RevealHighlight plugin) -->
+  <!-- Optional: default highlight.js style (only visual; we use ES modules for logic) -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11.8.0/styles/default.min.css">
 
   <style>
@@ -17,6 +17,8 @@
     .email { font-size: 0.95rem; opacity: .95; }
     .chart { height: 360px; margin: 12px auto; }
     noscript .nojs-message { display:block; }
+    /* small responsive tweak for code blocks */
+    pre code { font-size: 0.95rem; }
   </style>
 </head>
 <body>
@@ -29,51 +31,51 @@
   <div class="reveal">
     <div class="slides">
 
-      <!-- Title slide with required email -->
+      <!-- Title slide (email required) -->
       <section>
-        <h1>QUARTERLY EARNINGS REPORT</h1>
+        <h1>Quarterly Earnings — Qn Report</h1>
         <p class="email"><strong>Contact:</strong> 24f2000612@ds.study.iitm.ac.in</p>
-        <aside class="notes">Introduce yourself and state the quarter. Mention contact email (required).</aside>
+        <aside class="notes">Intro: mention contact email and the quarter summary.</aside>
       </section>
 
-      <!-- Markdown slide (data-markdown requires plugin) -->
+      <!-- Markdown slide -->
       <section data-markdown>
         <textarea data-template>
-## Highlights — Qn Results
+## Highlights
 
-- **Revenue**: Up 8% QoQ.
-- **Net Income**: Up 12% QoQ.
+- **Revenue**: Up 8% QoQ
+- **Net Income**: Up 12% QoQ
 
 ---
 
 ## Action Items
-
-1. Prioritize high-margin product expansion.
-2. Continue cost optimization.
+1. Prioritize high-margin product expansion
+2. Continue cost optimization
         </textarea>
       </section>
 
       <!-- Fragment (animated) slide -->
       <section>
-        <h2>Top KPIs</h2>
+        <h2>Top KPIs (Animated)</h2>
         <ul>
           <li class="fragment">Revenue: ₹ 125 crore</li>
           <li class="fragment">EBITDA: ₹ 28 crore</li>
           <li class="fragment fade-up">Net Margin: 10.4%</li>
-          <li class="fragment fade-in-then-semi">EPS: ₹ 3.45</li>
+          <li class="fragment">EPS: ₹ 3.45</li>
         </ul>
-        <aside class="notes">Reveal each KPI one-by-one. Explain drivers and trends.</aside>
+        <aside class="notes">Reveal each KPI one-by-one; explain drivers and next steps.</aside>
       </section>
 
-      <!-- Code sample with syntax highlighting -->
+      <!-- Code sample -->
       <section>
         <h2>Data Prep Example (Python)</h2>
         <pre><code class="language-python">import pandas as pd
 
 df = pd.read_csv('quarter_data.csv')
-rev = df.pivot_table(index='product', values='revenue', aggfunc='sum').sort_values('revenue', ascending=False)
+rev = df.pivot_table(index='product', values='revenue', aggfunc='sum') \
+        .sort_values('revenue', ascending=False)
 print(rev.head())</code></pre>
-        <aside class="notes">Explain pivot_table and top product ranking.</aside>
+        <aside class="notes">Explain pivot and how to get top products.</aside>
       </section>
 
       <!-- Math slide -->
@@ -81,42 +83,61 @@ print(rev.head())</code></pre>
         <h2>Financial Formula</h2>
         <p>Return on Equity (ROE):</p>
         <p>$$\mathrm{ROE} = \frac{\mathrm{Net\ Income}}{\mathrm{Shareholders'\ Equity}}$$</p>
-        <aside class="notes">Give numeric example and interpretation for investors.</aside>
+        <aside class="notes">Show numeric example and interpretation.</aside>
       </section>
 
-      <!-- Simple D3 chart slide (renders when slide shown) -->
+      <!-- Chart slide -->
       <section id="chart-slide">
-        <h2>Trend — Revenue by Month</h2>
-        <div id="chart" class="chart"></div>
-        <aside class="notes">Point out seasonal dip and recovery.</aside>
+        <h2>Revenue Trend (Interactive)</h2>
+        <div id="chart" class="chart" aria-hidden="false"></div>
+        <aside class="notes">Discuss seasonal trend and actions to smooth dips.</aside>
       </section>
 
       <!-- Closing slide -->
       <section>
         <h2>Contact & Next Steps</h2>
         <p>Email: <strong>24f2000612@ds.study.iitm.ac.in</strong></p>
-        <aside class="notes">Wrap up and open for Q&A.</aside>
+        <aside class="notes">Wrap up — ask for questions; provide contact email again.</aside>
       </section>
 
     </div>
   </div>
 
-  <!-- highlight.js global (required by RevealHighlight plugin) -->
-  <script src="https://cdn.jsdelivr.net/npm/highlight.js@11.8.0/lib/common.min.js"></script>
-
-  <!-- d3 for the simple chart (optional) -->
+  <!-- Load d3 for chart (ES module not required) -->
   <script src="https://cdn.jsdelivr.net/npm/d3@7.8.5/dist/d3.min.js"></script>
 
-  <!-- Use ES modules to import Reveal and plugins reliably -->
+  <!-- Use ES modules: Import Reveal + plugins + highlight.js ES core & languages -->
   <script type="module">
+    // Reveal (ESM)
     import Reveal from "https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/dist/reveal.esm.js";
+
+    // Reveal plugins (ESM)
     import Markdown from "https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/dist/plugin/markdown/markdown.esm.js";
-    import Highlight from "https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/dist/plugin/highlight/highlight.esm.js";
-    import Math from "https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/dist/plugin/math/math.esm.js";
+    import HighlightPlugin from "https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/dist/plugin/highlight/highlight.esm.js";
+    import MathPlugin from "https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/dist/plugin/math/math.esm.js";
     import Notes from "https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/dist/plugin/notes/notes.esm.js";
 
-    const plugins = [ Markdown, Highlight, Math, Notes ];
+    // Highlight.js core (ESM) and explicit languages (no require)
+    import hljs from "https://cdn.jsdelivr.net/npm/highlight.js@11.8.0/es/core.js";
 
+    // Import languages you need (ESM paths)
+    import xml from "https://cdn.jsdelivr.net/npm/highlight.js@11.8.0/es/languages/xml.js";
+    import bash from "https://cdn.jsdelivr.net/npm/highlight.js@11.8.0/es/languages/bash.js";
+    import python from "https://cdn.jsdelivr.net/npm/highlight.js@11.8.0/es/languages/python.js";
+    import javascript from "https://cdn.jsdelivr.net/npm/highlight.js@11.8.0/es/languages/javascript.js";
+    import json from "https://cdn.jsdelivr.net/npm/highlight.js@11.8.0/es/languages/json.js";
+
+    // Register languages (only those imported)
+    hljs.registerLanguage('xml', xml);
+    hljs.registerLanguage('bash', bash);
+    hljs.registerLanguage('python', python);
+    hljs.registerLanguage('javascript', javascript);
+    hljs.registerLanguage('json', json);
+
+    // Expose to global scope — RevealHighlight expects window.hljs or internal plugin uses it
+    window.hljs = hljs;
+
+    // Initialize Reveal with the plugin objects (passed directly)
     const deck = new Reveal({
       width: 1280,
       height: 720,
@@ -126,16 +147,26 @@ print(rev.head())</code></pre>
       history: true,
       center: true,
       transition: "slide",
-      plugins
+      plugins: [ Markdown, HighlightPlugin, MathPlugin, Notes ]
     });
 
+    // Initialize deck and then perform actions (highlighting, charts)
     deck.initialize().then(() => {
-      // highlight code blocks (if hljs global is available)
-      if (window.hljs && typeof hljs.highlightAll === 'function') {
-        try { hljs.highlightAll(); } catch (e) { console.warn('hljs.highlightAll failed', e); }
+      // Highlight all code blocks (hljs from ES modules)
+      try {
+        if (window.hljs && typeof hljs.highlightAll === 'function') {
+          hljs.highlightAll();
+        } else {
+          // fallback: manual highlight on code blocks
+          document.querySelectorAll('pre code[class^="language-"]').forEach(block => {
+            try { hljs.highlightElement(block); } catch(e) {}
+          });
+        }
+      } catch (e) {
+        console.warn('Highlighting failed', e);
       }
 
-      // render simple D3 chart when the chart slide becomes active
+      // Simple D3 trend chart rendering
       const sampleData = [
         {month: 'Jan', revenue: 20},
         {month: 'Feb', revenue: 22},
@@ -146,37 +177,40 @@ print(rev.head())</code></pre>
 
       function renderChart(data) {
         const container = document.getElementById('chart');
+        if(!container) return;
         container.innerHTML = '';
         const w = container.clientWidth || 900;
         const h = 320;
-        const svg = d3.create('svg').attr('viewBox', `0 0 ${w} ${h}`).style('width', '100%').style('height', '100%');
+        const svg = d3.create('svg').attr('viewBox', `0 0 ${w} ${h}`).style('width','100%').style('height','100%');
 
         const x = d3.scalePoint().domain(data.map(d=>d.month)).range([40, w-20]);
         const y = d3.scaleLinear().domain([0, d3.max(data, d=>d.revenue)]).range([h-30, 20]);
         const line = d3.line().x(d=>x(d.month)).y(d=>y(d.revenue)).curve(d3.curveMonotoneX);
 
-        svg.append('path').datum(data).attr('d', line).attr('fill', 'none').attr('stroke-width', 2).attr('stroke', '#333');
-        data.forEach(d=>{
-          svg.append('circle').attr('cx', x(d.month)).attr('cy', y(d.revenue)).attr('r', 4);
-          svg.append('text').attr('x', x(d.month)).attr('y', y(d.revenue)-10).attr('font-size', '11').text(d.revenue);
+        svg.append('path').datum(data).attr('d', line).attr('fill','none').attr('stroke-width',2).attr('stroke','#333');
+        data.forEach(d => {
+          svg.append('circle').attr('cx', x(d.month)).attr('cy', y(d.revenue)).attr('r',4);
+          svg.append('text').attr('x', x(d.month)).attr('y', y(d.revenue)-10).attr('font-size','11').text(d.revenue);
         });
+
         container.appendChild(svg.node());
       }
 
-      deck.on('slidechanged', function(event) {
+      // Render chart when chart slide becomes active
+      deck.on('slidechanged', (event) => {
         if (event.currentSlide && event.currentSlide.id === 'chart-slide') {
           renderChart(sampleData);
         }
       });
 
-      // If starting on the chart slide, render now
+      // If starting on the chart slide, render immediately
       const current = document.querySelector('.slides section#chart-slide');
       if (current && current.classList.contains('present')) renderChart(sampleData);
 
-      console.log('Reveal initialized. Plugins used:', plugins.length);
+      console.log('Reveal initialized, plugins loaded: Markdown, Highlight, Math, Notes');
     }).catch(err => {
-      console.error('Reveal failed to initialize', err);
-      document.body.insertAdjacentHTML('afterbegin','<div style="padding:16px;color:red;text-align:center;">Reveal initialization failed — check console.</div>');
+      console.error('Reveal initialization error:', err);
+      document.body.insertAdjacentHTML('afterbegin', '<div style="padding:12px;color:red;text-align:center;">Initialization failed — see console.</div>');
     });
   </script>
 </body>
