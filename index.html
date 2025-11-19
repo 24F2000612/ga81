@@ -3,197 +3,55 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Quarterly Earnings — RevealJS</title>
-
-  <!-- Reveal core CSS & theme (CDN) -->
+  <title>RevealJS — Quarterly Earnings (ga81)</title>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/dist/reveal.css">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/dist/theme/white.css" id="theme">
-
-  <!-- Highlight.js CSS for code highlighting -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11.8.0/styles/default.min.css">
-
-  <style>
-    /* small custom styling */
-    .chart { height: 360px; margin: 12px auto; }
-    .reveal { font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial; }
-    .email { font-size: 0.9rem; opacity: 0.9; }
-  </style>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/dist/theme/white.css">
+  <style>.reveal{font-family:Arial,sans-serif}.email{font-size:0.9rem;opacity:.9}</style>
 </head>
 <body>
   <div class="reveal">
     <div class="slides">
-
-      <!-- Title slide -->
       <section>
         <h1>Quarterly Earnings Report</h1>
-        <h3>Interactive Technical Report — RevealJS</h3>
-        <p class="email">Contact: 24f2000612@ds.study.iitm.ac.in</p>
-        <aside class="notes">
-          Welcome stakeholders — say your name, state the quarter and the goal of this deck.
-        </aside>
+        <p class="email"><strong>Contact:</strong> 24f2000612@ds.study.iitm.ac.in</p>
+        <aside class="notes">Intro: mention contact email (required).</aside>
       </section>
 
-      <!-- Markdown slide (require RevealMarkdown plugin) -->
       <section data-markdown>
         <textarea data-template>
-## Highlights — Qn Results (Markdown slide)
+## Highlights
 
-- **Revenue**: Up 8% QoQ.  
-- **Net Income**: Up 12% QoQ.  
-- **Key drivers**:
-  - Fragmented product A growth.  
-  - Operational cost reductions.  
+- Revenue up
+- Net income up
 
 ---
-
-## Action Items
-
-1. Prioritize high-margin product expansion.  
-2. Continue cost optimization.  
-3. Prepare investor Q&A for next month.
+## Actions
+1. Expand product A
+2. Optimize cost
         </textarea>
       </section>
 
-      <!-- Slide with fragments (animated elements) -->
       <section>
-        <h2>Top KPIs — Animated</h2>
-        <ul>
-          <li class="fragment">Revenue: ₹ 125 crore</li>
-          <li class="fragment">EBITDA: ₹ 28 crore</li>
-          <li class="fragment fade-up">Net Margin: 10.4%</li>
-          <li class="fragment fade-in-then-semi">EPS: ₹ 3.45</li>
-        </ul>
-        <aside class="notes">
-          Reveal each KPI one by one. Emphasize margin improvement from cost measures.
-        </aside>
+        <h2>Code sample</h2>
+        <pre><code class="python">print("Hello — sample code")</code></pre>
+        <aside class="notes">Explain code briefly.</aside>
       </section>
 
-      <!-- Code sample with syntax highlighting -->
       <section>
-        <h2>Data Prep Example (Python)</h2>
-        <pre><code class="python" data-line-numbers="1-3|5">
-import pandas as pd
-
-df = pd.read_csv('quarter_data.csv')
-# pivot to get product-wise revenue
-rev = df.pivot_table(index='product', values='revenue', aggfunc='sum').sort_values('revenue', ascending=False)
-print(rev.head())
-        </code></pre>
-        <aside class="notes">
-          Briefly explain the dataset, pivoting, and how this generates the product ranking shown earlier.
-        </aside>
+        <h2>Math</h2>
+        $$\mathrm{ROE}=\frac{NI}{E}$$
+        <aside class="notes">Show numeric example.</aside>
       </section>
-
-      <!-- Math slide with a financial formula -->
-      <section>
-        <h2>Financial Formula</h2>
-        <p>Return on Equity (ROE):</p>
-        <p>$$
-          \mathrm{ROE} = \frac{\mathrm{Net\ Income}}{\mathrm{Shareholders'\ Equity}} = \frac{NI}{E}
-        $$</p>
-        <p>Example: if NI = ₹10 crore and Equity = ₹100 crore, ROE = 10%</p>
-        <aside class="notes">
-          Explain why ROE matters to investors and how it changed this quarter (use numeric example).
-        </aside>
-      </section>
-
-      <!-- Live demo / iframe slide (lazy load) -->
-      <section>
-        <h2>Live Dashboard</h2>
-        <p>Embedded live demo (lazy-loaded iframe)</p>
-        <iframe data-src="https://example.com/your-dashboard" data-preload width="100%" height="450" style="border:1px solid #ddd;"></iframe>
-        <aside class="notes">
-          Mention that the iframe contains the live drill-down dashboard; it loads on-demand to save bandwidth.
-        </aside>
-      </section>
-
-      <!-- D3 placeholder + event-driven rendering -->
-      <section id="chart-slide">
-        <h2>Trend — Revenue by Month</h2>
-        <div id="chart" class="chart"></div>
-        <aside class="notes">
-          Talk through trendline; point out seasonal dip in month 3 and reasons.
-        </aside>
-      </section>
-
-      <!-- Speaker-details + publish instructions slide -->
-      <section>
-        <h2>Contact & Publishing</h2>
-        <p>Email: <strong>24f2000612@ds.study.iitm.ac.in</strong></p>
-        <p>Published on GitHub Pages — see repository: <code>quarterly-earnings-reveal</code></p>
-        <aside class="notes">
-          End with Q&A. Remind viewers they can refresh using ?v=2 to avoid cached content.
-        </aside>
-      </section>
-
     </div>
   </div>
 
-  <!-- Reveal core JS & plugins (CDN) -->
   <script src="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/dist/reveal.js"></script>
-
-  <!-- Plugins -->
   <script src="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/dist/plugin/markdown/markdown.esm.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/dist/plugin/highlight/highlight.esm.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/dist/plugin/math/math.esm.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/dist/plugin/notes/notes.esm.js"></script>
-
-  <!-- lightweight D3 for the chart (optional) -->
-  <script src="https://cdn.jsdelivr.net/npm/d3@7.8.5/dist/d3.min.js"></script>
-
   <script>
-    // Initialize Reveal with plugins
-    Reveal.initialize({
-      width: 1280,
-      height: 720,
-      margin: 0.04,
-      controls: true,
-      progress: true,
-      history: true,
-      center: true,
-      transition: "slide",
-      plugins: [ RevealMarkdown, RevealHighlight, RevealMath, RevealNotes ]
-    });
-
-    // simple example chart renderer (placeholder)
-    const sampleData = [
-      {month: 'Jan', revenue: 20},
-      {month: 'Feb', revenue: 22},
-      {month: 'Mar', revenue: 18},
-      {month: 'Apr', revenue: 24},
-      {month: 'May', revenue: 26}
-    ];
-
-    function renderChart(data) {
-      const container = document.getElementById('chart');
-      container.innerHTML = ''; // reset
-      const w = container.clientWidth || 800;
-      const h = 320;
-      const svg = d3.create("svg").attr("viewBox", `0 0 ${w} ${h}`).style("width", "100%").style("height", "100%");
-      const x = d3.scalePoint().domain(data.map(d=>d.month)).range([40, w-20]);
-      const y = d3.scaleLinear().domain([0, d3.max(data, d=>d.revenue)]).range([h-30, 20]);
-      const line = d3.line().x(d=>x(d.month)).y(d=>y(d.revenue)).curve(d3.curveMonotoneX);
-
-      svg.append("path").datum(data).attr("d", line).attr("fill", "none").attr("stroke-width", 2).attr("stroke", "#333");
-      data.forEach(d=>{
-        svg.append("circle").attr("cx", x(d.month)).attr("cy", y(d.revenue)).attr("r", 4);
-        svg.append("text").attr("x", x(d.month)).attr("y", y(d.revenue)-10).attr("font-size", "11").text(d.revenue);
-      });
-
-      container.appendChild(svg.node());
-    }
-
-    // Render chart when slide becomes active
-    Reveal.addEventListener('slidechanged', function(event) {
-      if (event.currentSlide && event.currentSlide.id === 'chart-slide') {
-        renderChart(sampleData);
-      }
-    });
-
-    // Render initially if starting slide is chart
-    if (document.querySelector('.slides section#chart-slide.is-active')) {
-      renderChart(sampleData);
-    }
+    Reveal.initialize({ plugins:[RevealMarkdown, RevealHighlight, RevealMath, RevealNotes] });
   </script>
 </body>
 </html>
