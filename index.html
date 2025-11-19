@@ -1,338 +1,195 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Quarterly Earnings Report - RevealJS</title>
-  
-  <!-- Reveal.js Core CSS -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Quarterly Earnings Report - Q3 2025</title>
+
+  <!-- Reveal.js CSS -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/dist/reveal.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/dist/theme/white.css">
   
-  <!-- Highlight.js for code syntax -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11.8.0/styles/github.min.css">
-  
   <style>
-    :root {
-      --color-primary: #0284c7;
-      --color-secondary: #475569;
-      --color-accent: #38bdf8;
-      --color-bg: #ffffff;
-      --color-text: #0f172a;
-    }
-
-    .reveal {
-      font-family: 'Segoe UI', Arial, sans-serif;
-    }
-
-    .reveal h1, .reveal h2, .reveal h3 {
-      color: var(--color-primary);
-      text-transform: none;
-    }
-
-    .reveal .email-contact {
-      font-size: 1.1rem;
-      color: var(--color-secondary);
-      margin-top: 2rem;
-      font-weight: 500;
-    }
-
-    .reveal .chart-container {
-      height: 400px;
-      margin: 20px auto;
-      background: #f8fafc;
-      border-radius: 8px;
-      padding: 20px;
-    }
-
-    .reveal .kpi-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 20px;
-      margin-top: 30px;
-    }
-
-    .reveal .kpi-card {
-      background: linear-gradient(135deg, #0284c7 0%, #0369a1 100%);
-      color: white;
-      padding: 30px;
-      border-radius: 10px;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    }
-
-    .reveal .kpi-value {
-      font-size: 2.5rem;
+    .reveal { font-family: 'Segoe UI', Tahoma, sans-serif; }
+    .email-highlight { 
+      font-size: 1.2rem; 
+      color: #2563eb; 
       font-weight: bold;
+      background: #f0f9ff;
+      padding: 8px 16px;
+      border-radius: 6px;
+      display: inline-block;
       margin: 10px 0;
     }
-
-    .reveal .kpi-label {
-      font-size: 1.1rem;
-      opacity: 0.9;
-    }
-
-    .reveal pre {
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-      border-radius: 8px;
-    }
-
-    .reveal pre code {
+    .chart { height: 400px; margin: 20px auto; }
+    .kpi-card { 
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
       padding: 20px;
-      font-size: 0.9em;
-      line-height: 1.5;
-      max-height: 450px;
-    }
-
-    .reveal .math-formula {
-      background: #f1f5f9;
-      padding: 30px;
       border-radius: 10px;
-      margin: 20px 0;
-      border-left: 4px solid var(--color-primary);
-    }
-
-    .reveal section img {
-      border: none;
-      box-shadow: none;
-    }
-
-    /* Chart styling */
-    #revenue-chart .line {
-      fill: none;
-      stroke: var(--color-primary);
-      stroke-width: 3;
-    }
-
-    #revenue-chart .point {
-      fill: var(--color-primary);
-    }
-
-    #revenue-chart .point-label {
-      fill: var(--color-text);
-      font-size: 14px;
-      font-weight: 600;
-    }
-
-    #revenue-chart .axis-label {
-      fill: var(--color-secondary);
-      font-size: 12px;
-    }
-
-    .reveal .highlight-box {
-      background: #eff6ff;
-      border-left: 4px solid var(--color-accent);
-      padding: 20px;
-      margin: 20px 0;
-      border-radius: 4px;
-    }
-
-    noscript {
-      display: block;
-      padding: 20px;
-      background: #fee;
-      text-align: center;
-      font-size: 1.2rem;
+      margin: 10px;
     }
   </style>
 </head>
 <body>
-  <noscript>
-    <p>JavaScript is required to view this presentation. Please enable JavaScript and refresh.</p>
-  </noscript>
-
   <div class="reveal">
     <div class="slides">
-      
+
       <!-- Title Slide -->
       <section>
         <h1>Quarterly Earnings Report</h1>
-        <h3>Q3 2025 Financial Results</h3>
-        <p class="email-contact">
-          <strong>Presented by:</strong> 24f2000612@ds.study.iitm.ac.in
-        </p>
+        <h3>Q3 2025 - Financial Performance</h3>
+        <p class="email-highlight">📧 24f2000612@ds.study.iitm.ac.in</p>
+        <p><small>Prepared by: Financial Analytics Team</small></p>
         <aside class="notes">
-          Welcome everyone to the Q3 2025 earnings presentation. Today we'll review our financial performance,
-          key metrics, and strategic initiatives. Make sure to mention the strong quarter-over-quarter growth.
+          Welcome to Q3 earnings presentation. Email: 24f2000612@ds.study.iitm.ac.in
         </aside>
       </section>
 
       <!-- Markdown Slide -->
       <section data-markdown>
         <textarea data-template>
-          ## Executive Summary
-          
-          Our Q3 2025 performance demonstrates **strong momentum** across all business segments:
-          
-          - **Revenue Growth**: 15.2% YoY increase
-          - **Operating Margin**: Improved to 22.5%
-          - **Customer Acquisition**: 45,000 new clients
-          - **Digital Transformation**: 78% of transactions now digital
-          
-          ---
-          
-          ## Strategic Priorities
-          
-          1. **Market Expansion** - Enter 3 new geographic markets
-          2. **Technology Innovation** - AI/ML investment doubled
-          3. **Customer Experience** - NPS score target: 75+
-          4. **Sustainability** - Carbon neutral by 2026
-        </textarea>
-      </section>
+## Executive Summary
 
-      <!-- Animated KPIs with Fragments -->
-      <section>
-        <h2>Key Performance Indicators</h2>
-        <div class="kpi-grid">
-          <div class="kpi-card fragment fade-up" data-fragment-index="1">
-            <div class="kpi-label">Total Revenue</div>
-            <div class="kpi-value">₹ 1,247 Cr</div>
-          </div>
-          <div class="kpi-card fragment fade-up" data-fragment-index="2">
-            <div class="kpi-label">Net Income</div>
-            <div class="kpi-value">₹ 285 Cr</div>
-          </div>
-          <div class="kpi-card fragment fade-up" data-fragment-index="3">
-            <div class="kpi-label">EBITDA</div>
-            <div class="kpi-value">₹ 412 Cr</div>
-          </div>
-          <div class="kpi-card fragment fade-up" data-fragment-index="4">
-            <div class="kpi-label">EPS</div>
-            <div class="kpi-value">₹ 14.25</div>
-          </div>
-        </div>
+**Q3 2025 Performance Highlights:**
+
+- Revenue: ₹125 crore (+8% QoQ)
+- Net Income: ₹13 crore (+12% QoQ)
+- EBITDA Margin: 22.4%
+- EPS: ₹3.45
+
+---
+
+## Strategic Priorities
+
+1. Expand high-margin product lines
+2. Optimize operational costs
+3. Accelerate digital transformation
+4. Strengthen customer retention
+        </textarea>
         <aside class="notes">
-          Walk through each KPI one by one. Highlight the 22.9% net margin and strong EPS growth.
-          Compare with previous quarter and analyst expectations.
+          Discuss key metrics and strategic initiatives for next quarter.
         </aside>
       </section>
 
-      <!-- Code Sample with Syntax Highlighting -->
+      <!-- Animated KPIs -->
       <section>
-        <h2>Financial Data Processing</h2>
-        <p>Python code for quarterly analysis:</p>
-        <pre><code class="language-python" data-line-numbers="1-2|4-8|10-12">import pandas as pd
+        <h2>Key Performance Indicators</h2>
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+          <div class="kpi-card fragment fade-up">
+            <h3>Revenue</h3>
+            <h2>₹125 Cr</h2>
+            <p>↑ 8% QoQ</p>
+          </div>
+          <div class="kpi-card fragment fade-up">
+            <h3>EBITDA</h3>
+            <h2>₹28 Cr</h2>
+            <p>22.4% Margin</p>
+          </div>
+          <div class="kpi-card fragment fade-up">
+            <h3>Net Income</h3>
+            <h2>₹13 Cr</h2>
+            <p>↑ 12% QoQ</p>
+          </div>
+          <div class="kpi-card fragment fade-up">
+            <h3>EPS</h3>
+            <h2>₹3.45</h2>
+            <p>↑ ₹0.28</p>
+          </div>
+        </div>
+        <aside class="notes">
+          Highlight strong performance across all metrics. Revenue growth driven by product expansion.
+        </aside>
+      </section>
+
+      <!-- Code Sample -->
+      <section>
+        <h2>Data Processing Pipeline</h2>
+        <pre><code class="language-python" data-line-numbers="1-2|4-5|7-9">
+import pandas as pd
 import numpy as np
 
 # Load quarterly financial data
 df = pd.read_csv('q3_2025_financials.csv')
-df['date'] = pd.to_datetime(df['date'])
-df['revenue_growth'] = df.groupby('segment')['revenue'] \
-    .pct_change() * 100
 
 # Calculate key metrics
-metrics = df.groupby('segment').agg({
-    'revenue': 'sum',
-    'operating_income': 'sum',
-    'margin': 'mean'
-}).round(2)
-
-print(metrics.head())
-</code></pre>
+revenue_growth = df.groupby('quarter')['revenue'].sum().pct_change() * 100
+margin = (df['ebitda'] / df['revenue']) * 100
+        </code></pre>
         <aside class="notes">
-          This code demonstrates our data pipeline for financial analysis.
-          We use pandas for efficient data processing and aggregation.
+          Python code demonstrating our automated financial analysis pipeline.
         </aside>
       </section>
 
-      <!-- Mathematical Formulas -->
+      <!-- Math Formula -->
       <section>
         <h2>Financial Metrics</h2>
-        <div class="math-formula">
-          <h3>Return on Equity (ROE)</h3>
-          <p>$$\text{ROE} = \frac{\text{Net Income}}{\text{Shareholders' Equity}} \times 100$$</p>
-          <p class="fragment">Current ROE: <strong>18.7%</strong></p>
-        </div>
-        <div class="math-formula fragment">
-          <h3>Operating Margin</h3>
-          <p>$$\text{Operating Margin} = \frac{\text{Operating Income}}{\text{Revenue}} \times 100$$</p>
-          <p class="fragment">Current Operating Margin: <strong>22.5%</strong></p>
-        </div>
+        <h3>Return on Equity (ROE)</h3>
+        <p>$$\text{ROE} = \frac{\text{Net Income}}{\text{Shareholders' Equity}} \times 100$$</p>
+        <p class="fragment">Q3 2025 ROE: <strong>18.7%</strong></p>
+        
+        <h3 class="fragment" style="margin-top: 40px;">Operating Margin</h3>
+        <p class="fragment">$$\text{Operating Margin} = \frac{\text{Operating Income}}{\text{Revenue}} \times 100$$</p>
         <aside class="notes">
-          Explain how these metrics demonstrate operational efficiency.
-          ROE of 18.7% exceeds industry average of 15.2%.
+          ROE improved by 2.3 percentage points. Operating efficiency gains from automation.
         </aside>
       </section>
 
-      <!-- Interactive Chart Slide -->
+      <!-- Interactive Chart -->
       <section id="chart-slide">
-        <h2>Revenue Trend Analysis</h2>
-        <div class="chart-container">
-          <svg id="revenue-chart" width="100%" height="100%"></svg>
-        </div>
-        <div class="fragment highlight-box">
-          <strong>Key Insight:</strong> Consistent growth trajectory with 15.2% YoY increase
-        </div>
+        <h2>Revenue Trend (6 Quarters)</h2>
+        <div id="revenue-chart" class="chart"></div>
         <aside class="notes">
-          The chart shows steady revenue growth over the past 6 quarters.
-          Note the acceleration in Q2 and Q3 due to new product launches.
+          Revenue shows consistent upward trend. Q3 reflects seasonal strength and new product launches.
         </aside>
       </section>
 
-      <!-- More Fragments -->
+      <!-- Fragments List -->
       <section>
         <h2>Business Segment Performance</h2>
-        <ul style="font-size: 1.2em; line-height: 1.8;">
-          <li class="fragment fade-right">
-            <strong>Retail Banking:</strong> ₹ 687 Cr (55% of revenue) - Growth: 12%
-          </li>
-          <li class="fragment fade-right">
-            <strong>Corporate Banking:</strong> ₹ 312 Cr (25% of revenue) - Growth: 18%
-          </li>
-          <li class="fragment fade-right">
-            <strong>Investment Services:</strong> ₹ 186 Cr (15% of revenue) - Growth: 24%
-          </li>
-          <li class="fragment fade-right">
-            <strong>Digital Services:</strong> ₹ 62 Cr (5% of revenue) - Growth: 42%
-          </li>
+        <ul style="font-size: 1.5rem; line-height: 2;">
+          <li class="fragment fade-right">Enterprise Solutions: ₹52 Cr (42%)</li>
+          <li class="fragment fade-right">Consumer Products: ₹38 Cr (30%)</li>
+          <li class="fragment fade-right">Cloud Services: ₹25 Cr (20%)</li>
+          <li class="fragment fade-right">Other: ₹10 Cr (8%)</li>
         </ul>
         <aside class="notes">
-          Digital Services showing exceptional growth despite being smallest segment.
-          This validates our technology investment strategy.
+          Enterprise segment remains largest contributor. Cloud services showing fastest growth rate.
         </aside>
       </section>
 
-      <!-- Additional Code Example -->
+      <!-- Another Code Sample -->
       <section>
-        <h2>Risk Assessment Model</h2>
-        <pre><code class="language-python" data-line-numbers>def calculate_var(returns, confidence_level=0.95):
-    """
-    Calculate Value at Risk (VaR) for portfolio
-    """
+        <h2>Risk Analysis Model</h2>
+        <pre><code class="language-python" data-line-numbers>
+# Value at Risk (VaR) calculation
+def calculate_var(returns, confidence_level=0.95):
+    """Calculate Value at Risk for portfolio"""
     sorted_returns = np.sort(returns)
     index = int((1 - confidence_level) * len(sorted_returns))
     var = abs(sorted_returns[index])
-    
-    return {
-        'VaR_95': var,
-        'CVaR': np.mean(sorted_returns[:index]),
-        'confidence': confidence_level
-    }
+    return var
 
-# Apply to quarterly portfolio
-portfolio_var = calculate_var(quarterly_returns)
-print(f"95% VaR: {portfolio_var['VaR_95']:.2%}")
-</code></pre>
+portfolio_var = calculate_var(quarterly_returns, 0.95)
+print(f"95% VaR: ₹{portfolio_var:.2f} Cr")
+        </code></pre>
         <aside class="notes">
-          Our risk management framework uses VaR and CVaR for portfolio monitoring.
-          Current VaR levels are within acceptable risk tolerance.
+          Our risk management framework using statistical models for portfolio optimization.
         </aside>
       </section>
 
       <!-- Closing Slide -->
       <section>
-        <h2>Q&A and Contact</h2>
-        <p style="font-size: 1.3em; margin: 40px 0;">
-          Thank you for your attention!
+        <h2>Q&A Session</h2>
+        <h3>Contact Information</h3>
+        <p class="email-highlight">📧 24f2000612@ds.study.iitm.ac.in</p>
+        <br>
+        <p style="font-size: 1.2rem;">
+          <strong>Thank you for your attention!</strong><br>
+          Questions and feedback welcome
         </p>
-        <div style="background: #f1f5f9; padding: 30px; border-radius: 10px;">
-          <h3 style="color: var(--color-primary);">Contact Information</h3>
-          <p class="email-contact" style="font-size: 1.4rem;">
-            📧 24f2000612@ds.study.iitm.ac.in
-          </p>
-        </div>
         <aside class="notes">
-          Open the floor for questions. Be prepared to discuss guidance for Q4 2025.
-          Emphasize continued investment in digital transformation.
+          Open floor for questions. Reiterate contact email: 24f2000612@ds.study.iitm.ac.in
         </aside>
       </section>
 
@@ -342,7 +199,7 @@ print(f"95% VaR: {portfolio_var['VaR_95']:.2%}")
   <!-- D3.js for charts -->
   <script src="https://cdn.jsdelivr.net/npm/d3@7.8.5/dist/d3.min.js"></script>
 
-  <!-- Reveal.js and plugins using ES modules -->
+  <!-- Reveal.js and plugins -->
   <script type="module">
     import Reveal from 'https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/dist/reveal.esm.js';
     import Markdown from 'https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/plugin/markdown/markdown.esm.js';
@@ -350,136 +207,113 @@ print(f"95% VaR: {portfolio_var['VaR_95']:.2%}")
     import Math from 'https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/plugin/math/math.esm.js';
     import Notes from 'https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/plugin/notes/notes.esm.js';
 
-    // Initialize Reveal
     const deck = new Reveal({
+      plugins: [Markdown, Highlight, Math, Notes],
       width: 1280,
       height: 720,
-      margin: 0.04,
-      controls: true,
-      progress: true,
       center: true,
-      hash: true,
       transition: 'slide',
-      transitionSpeed: 'default',
-      plugins: [Markdown, Highlight, Math, Notes]
+      hash: true
     });
 
     deck.initialize().then(() => {
-      console.log('RevealJS initialized successfully');
+      // D3 Chart Data
+      const revenueData = [
+        { quarter: 'Q2 2024', revenue: 95 },
+        { quarter: 'Q3 2024', revenue: 102 },
+        { quarter: 'Q4 2024', revenue: 108 },
+        { quarter: 'Q1 2025', revenue: 112 },
+        { quarter: 'Q2 2025', revenue: 116 },
+        { quarter: 'Q3 2025', revenue: 125 }
+      ];
 
-      // Render D3 chart when the chart slide is shown
-      deck.on('slidechanged', (event) => {
-        if (event.currentSlide && event.currentSlide.id === 'chart-slide') {
-          renderRevenueChart();
+      function renderChart() {
+        const container = document.getElementById('revenue-chart');
+        if (!container) return;
+        
+        container.innerHTML = '';
+        const margin = { top: 20, right: 30, bottom: 60, left: 60 };
+        const width = 900 - margin.left - margin.right;
+        const height = 400 - margin.top - margin.bottom;
+
+        const svg = d3.select('#revenue-chart')
+          .append('svg')
+          .attr('width', width + margin.left + margin.right)
+          .attr('height', height + margin.top + margin.bottom)
+          .append('g')
+          .attr('transform', `translate(${margin.left},${margin.top})`);
+
+        const x = d3.scaleBand()
+          .domain(revenueData.map(d => d.quarter))
+          .range([0, width])
+          .padding(0.3);
+
+        const y = d3.scaleLinear()
+          .domain([0, d3.max(revenueData, d => d.revenue) * 1.1])
+          .range([height, 0]);
+
+        // Bars
+        svg.selectAll('.bar')
+          .data(revenueData)
+          .enter()
+          .append('rect')
+          .attr('class', 'bar')
+          .attr('x', d => x(d.quarter))
+          .attr('width', x.bandwidth())
+          .attr('y', d => y(d.revenue))
+          .attr('height', d => height - y(d.revenue))
+          .attr('fill', '#667eea')
+          .attr('rx', 4);
+
+        // Value labels
+        svg.selectAll('.label')
+          .data(revenueData)
+          .enter()
+          .append('text')
+          .attr('x', d => x(d.quarter) + x.bandwidth() / 2)
+          .attr('y', d => y(d.revenue) - 5)
+          .attr('text-anchor', 'middle')
+          .attr('font-size', '14px')
+          .attr('font-weight', 'bold')
+          .text(d => `₹${d.revenue}Cr`);
+
+        // X Axis
+        svg.append('g')
+          .attr('transform', `translate(0,${height})`)
+          .call(d3.axisBottom(x))
+          .selectAll('text')
+          .attr('transform', 'rotate(-45)')
+          .style('text-anchor', 'end');
+
+        // Y Axis
+        svg.append('g')
+          .call(d3.axisLeft(y).ticks(5).tickFormat(d => `₹${d}Cr`));
+
+        // Y Axis Label
+        svg.append('text')
+          .attr('transform', 'rotate(-90)')
+          .attr('y', 0 - margin.left)
+          .attr('x', 0 - (height / 2))
+          .attr('dy', '1em')
+          .style('text-anchor', 'middle')
+          .text('Revenue (Crores)');
+      }
+
+      // Render chart when slide appears
+      deck.on('slidechanged', event => {
+        if (event.currentSlide.id === 'chart-slide') {
+          renderChart();
         }
       });
 
-      // If we're already on the chart slide, render it
-      if (document.querySelector('.present#chart-slide')) {
-        renderRevenueChart();
+      // Initial render if on chart slide
+      if (document.querySelector('#chart-slide.present')) {
+        renderChart();
       }
     });
-
-    function renderRevenueChart() {
-      const data = [
-        { quarter: 'Q2 2024', revenue: 985, label: '₹985 Cr' },
-        { quarter: 'Q3 2024', revenue: 1082, label: '₹1082 Cr' },
-        { quarter: 'Q4 2024', revenue: 1153, label: '₹1153 Cr' },
-        { quarter: 'Q1 2025', revenue: 1095, label: '₹1095 Cr' },
-        { quarter: 'Q2 2025', revenue: 1178, label: '₹1178 Cr' },
-        { quarter: 'Q3 2025', revenue: 1247, label: '₹1247 Cr' }
-      ];
-
-      const container = document.getElementById('revenue-chart');
-      if (!container) return;
-
-      // Clear existing chart
-      d3.select('#revenue-chart').selectAll('*').remove();
-
-      const margin = { top: 40, right: 40, bottom: 60, left: 80 };
-      const width = container.clientWidth - margin.left - margin.right;
-      const height = container.clientHeight - margin.top - margin.bottom;
-
-      const svg = d3.select('#revenue-chart')
-        .attr('viewBox', `0 0 ${container.clientWidth} ${container.clientHeight}`)
-        .append('g')
-        .attr('transform', `translate(${margin.left},${margin.top})`);
-
-      // Scales
-      const x = d3.scalePoint()
-        .domain(data.map(d => d.quarter))
-        .range([0, width])
-        .padding(0.5);
-
-      const y = d3.scaleLinear()
-        .domain([900, d3.max(data, d => d.revenue) + 50])
-        .range([height, 0]);
-
-      // Line generator
-      const line = d3.line()
-        .x(d => x(d.quarter))
-        .y(d => y(d.revenue))
-        .curve(d3.curveMonotoneX);
-
-      // Add axes
-      svg.append('g')
-        .attr('transform', `translate(0,${height})`)
-        .call(d3.axisBottom(x))
-        .selectAll('text')
-        .attr('class', 'axis-label')
-        .style('font-size', '14px');
-
-      svg.append('g')
-        .call(d3.axisLeft(y).tickFormat(d => `₹${d}`))
-        .selectAll('text')
-        .attr('class', 'axis-label')
-        .style('font-size', '14px');
-
-      // Add line
-      svg.append('path')
-        .datum(data)
-        .attr('class', 'line')
-        .attr('d', line);
-
-      // Add points
-      svg.selectAll('.point')
-        .data(data)
-        .enter()
-        .append('circle')
-        .attr('class', 'point')
-        .attr('cx', d => x(d.quarter))
-        .attr('cy', d => y(d.revenue))
-        .attr('r', 6);
-
-      // Add labels
-      svg.selectAll('.point-label')
-        .data(data)
-        .enter()
-        .append('text')
-        .attr('class', 'point-label')
-        .attr('x', d => x(d.quarter))
-        .attr('y', d => y(d.revenue) - 15)
-        .attr('text-anchor', 'middle')
-        .text(d => d.label);
-
-      // Add axis labels
-      svg.append('text')
-        .attr('x', width / 2)
-        .attr('y', height + 45)
-        .attr('text-anchor', 'middle')
-        .style('font-size', '16px')
-        .style('fill', '#475569')
-        .text('Quarter');
-
-      svg.append('text')
-        .attr('transform', 'rotate(-90)')
-        .attr('x', -height / 2)
-        .attr('y', -55)
-        .attr('text-anchor', 'middle')
-        .style('font-size', '16px')
-        .style('fill', '#475569')
-        .text('Revenue (Crores)');
-    }
   </script>
+
+  <!-- Highlight.js CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11.8.0/styles/github-dark.min.css">
 </body>
 </html>
