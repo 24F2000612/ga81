@@ -5,20 +5,24 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>RevealJS — Quarterly Earnings (ga81)</title>
 
-  <!-- Reveal core CSS & theme -->
+  <!-- Core CSS -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/dist/reveal.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/dist/theme/white.css">
 
-  <!-- Highlight.js style for code highlighting -->
+  <!-- highlight.js style (used by RevealHighlight plugin) -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11.8.0/styles/default.min.css">
 
   <style>
-    .reveal{font-family:Arial,sans-serif}
+    .reveal{font-family:Arial, sans-serif}
     .email{font-size:0.9rem;opacity:.9}
     .chart{height:360px;margin:12px auto}
   </style>
 </head>
 <body>
+  <noscript>
+    <div style="padding:20px;text-align:center;">JavaScript is required to view this presentation. Enable JS and refresh.</div>
+  </noscript>
+
   <div class="reveal">
     <div class="slides">
 
@@ -44,7 +48,7 @@
 
       <section>
         <h2>Code sample</h2>
-        <pre><code class="python">print("Hello — sample code")</code></pre>
+        <pre><code class="language-python">print("Hello — sample code")</code></pre>
         <aside class="notes">Explain code briefly.</aside>
       </section>
 
@@ -57,17 +61,16 @@
     </div>
   </div>
 
-  <!-- Reveal core JS -->
-  <script src="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/dist/reveal.js"></script>
+  <!-- Use ESM imports so plugin objects are available as JS module values -->
+  <script type="module">
+    import Reveal from "https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/dist/reveal.esm.js";
+    import Markdown from "https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/dist/plugin/markdown/markdown.esm.js";
+    import Highlight from "https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/dist/plugin/highlight/highlight.esm.js";
+    import Math from "https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/dist/plugin/math/math.esm.js";
+    import Notes from "https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/dist/plugin/notes/notes.esm.js";
 
-  <!-- Use the non-ESM plugin files so they run in normal script tags -->
-  <script src="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/plugin/markdown/markdown.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/plugin/highlight/highlight.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/plugin/math/math.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/plugin/notes/notes.js"></script>
-
-  <script>
-    Reveal.initialize({
+    // Initialize Reveal with module plugins (passed as values, not globals)
+    const deck = new Reveal({
       width: 1280,
       height: 720,
       margin: 0.04,
@@ -76,8 +79,19 @@
       history: true,
       center: true,
       transition: "slide",
-      plugins: [ RevealMarkdown, RevealHighlight, RevealMath, RevealNotes ]
+      plugins: [ Markdown, Highlight, Math, Notes ]
+    });
+    deck.initialize();
+
+    // optional: ensure highlight.js highlights code blocks after ready
+    deck.on('ready', () => {
+      if (window.hljs && typeof hljs.highlightAll === 'function') {
+        hljs.highlightAll();
+      }
     });
   </script>
+
+  <!-- highlight.js (global) - used by RevealHighlight to highlight code -->
+  <script src="https://cdn.jsdelivr.net/npm/highlight.js@11.8.0/lib/common.min.js"></script>
 </body>
 </html>
